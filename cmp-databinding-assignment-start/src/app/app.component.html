@@ -14,4 +14,10 @@
       </ol>
     </div>
   </div>
+
+  <game-control-component (game)="onStartGame($event)"></game-control-component>
+  <div *ngFor="let number of numbers">
+    <odd-component *ngIf="isOdd(number)" [number]="number"></odd-component>
+    <even-component *ngIf="isEven(number)" [number]="number"></even-component>
+  </div>
 </div>
