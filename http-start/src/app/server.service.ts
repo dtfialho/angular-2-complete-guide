@@ -15,8 +15,8 @@ export class ServerService {
   }
 
   getServers() {
-    // return this.http.get('https://udemy-ng-http-5eb32.firebaseio.com/data.json').map(
-    return this.http.get('https://udemy-ng-http-5eb32.firebaseio.com/data').map(
+    return this.http.get('https://udemy-ng-http-5eb32.firebaseio.com/data.json').map(
+    // return this.http.get('https://udemy-ng-http-5eb32.firebaseio.com/data').map(
       (response: Response) => {
         const data = response.json();
         for(const server of data) {
@@ -27,6 +27,14 @@ export class ServerService {
     ).catch(
       (error: Response)  => {
         return Observable.throw('Somethin went wrong!');
+      }
+    );
+  }
+
+  getAppName() {
+    return this.http.get('https://udemy-ng-http-5eb32.firebaseio.com/appName.json').map(
+      (response: Response) => {
+        return response.json();
       }
     );
   }
