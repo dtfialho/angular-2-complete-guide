@@ -3,7 +3,7 @@ import * as firebase from 'firebase';
 
 @Injectable()
 export class AuthService {
-  token: string = '';
+  token: string;
 
   constructor() { }
 
@@ -30,6 +30,10 @@ export class AuthService {
       (token: string) => this.token = token
     );
     return this.token;
+  }
+
+  isAuthenticated() {
+    return this.token != null;
   }
 
 }
