@@ -1,4 +1,4 @@
-import { Component, trigger, state, style } from '@angular/core';
+import { Component, trigger, state, style, transition, animate } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +10,11 @@ import { Component, trigger, state, style } from '@angular/core';
         transform: 'translateX(0)'
       })),
       state('highlighted', style({
-        backgroundColor: '#00f',
+        'background-color': '#00f',
         transform: 'translateX(100px)'
-      }))
+      })),
+      transition('normal => highlighted', animate(300)),
+      transition('highlighted => normal', animate(800))
     ])
   ]
 })
